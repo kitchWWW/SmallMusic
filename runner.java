@@ -29,7 +29,7 @@ public class runner {
 		finalPart.add(oneFinal);
 		//System.out.println(finalPart);
 
-		buildParts(timeStamp,"IntervalMusic", finalPart,insturments);
+		buildParts(timeStamp,"SmallMusic", finalPart,insturments);
 		//System.out.println("Done?");
 	}
 
@@ -84,7 +84,7 @@ public class runner {
 	            }
 	        }
         	sc.close();
-			PrintWriter writer = new PrintWriter("out/"+timeStamp+"/"+title+"Score.ly", "UTF-8");
+			PrintWriter writer = new PrintWriter("out/"+timeStamp+"/"+title+".ly", "UTF-8");
 			writer.println(res);
 			writer.close();
 
