@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.Collections;
+import java.lang.Math;
 
 public class MovementOne {
 
@@ -58,11 +59,9 @@ public class MovementOne {
 			mvmtOne.add(new Note(motifs.get(i).get(0),4,""));
 			mvmtOne.add(new Note(motifs.get(i).get(1),4,""));
 		}
-		mvmtOne.add(8,new Note("^\\markup{\\magnify #2 \"*\" }"));
+		mvmtOne.add(8+(int)Math.round(Math.random()*8),new Note("^\\markup{\\magnify #2 \"*\" }"));
 		mvmtOne.add(18,new Note("\n\\break\n"));
-		mvmtOne.add(new Note("\n \\revert Score.BarLine.stencil\n\\bar\":|.\"\n "));
-		mvmtOne.add(new Note(79,4,"^\"break\""));
-		mvmtOne.add(new Note("\n\\bar\"||\"\n "));
+		mvmtOne.add(38,new Note("\n\\set Score.repeatCommands = #'((volta \"1-4, 6\"))\n"));
 		return mvmtOne;
 	}
 
