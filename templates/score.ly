@@ -9,6 +9,7 @@
   top-margin = 1\cm
   bottom-margin = 1\cm
   ragged-last-bottom = ##t
+  ragged-last = ##f
   indent = 0.0\cm
 }
 
@@ -21,8 +22,13 @@ subtitle ="  "
 subsubtitle =  \markup { 
          \override #'(font-name . "Avenir Light")
 		\fontsize #3 
-         "For Ukulele and Live Electronics" }
-tagline=""
+         "For Soloist and Live Electronics" }
+tagline = \markup{\center-column{
+	"  "
+	"  "
+	\italic{"A fresh score should be generated for every performance at"} 	"www.brianellissound.com/smallMusic"}}
+
+
 composer = \markup { 
          \override #'(font-name . "Avenir Light")
 		\fontsize #1 
@@ -48,6 +54,19 @@ piece = \markup {
 }
 
 
+\score{
+\header{
+tagline=""
+piece = ""
+}
+\midi {}
+\layout{}
+
+%part1
+
+
+}
+
 
 \markup{
 \line{
@@ -55,28 +74,24 @@ piece = \markup {
 
 \column{
 \huge "Performance Instructions:"
-" "
-" "
-\small "NEXT can be triggered"
-\small "with the space bar after"
-\small "cues have been enabled."
-" "
-\small "Score transposed to be"
-\small "read like guitar in"
-\small "first position."
-" "
-\small "~4:00 total"
-
-
-
+"  "
+"~4:30 total"
 }
 
 
   \hspace #6
 
-\column{
-"Begin playing cycle""At *, NEXT""At end of cycle, NEXT""Play cycle 3 more times""On 3rd time at *, NEXT""After finishing, repeat break""After 9 repeats, NEXT"
-"Repeat break 5 times""Begin playing cycle""At *, NEXT""Play cycle 2 more times""On 2nd time at *, NEXT""Play break once""Wait 1 second, NEXT""Wait 3 seconds, NEXT"
+\small \column{
+"* indicates to advance the program via"
+\line{\hspace #4 "either the space bar or foot pedal."}
+"Repeat the cycle a total of seven times."
+ "Advance the program at the first * only during"
+\line{\hspace #4 "the second and fifth time playing."}
+"Advance the program at the second * only"
+\line{\hspace #4 "on the first, fifth, and seventh times"}
+\line{\hspace #4 "playing the cycle."}
+"All other * are advanced when first arrived at."
+
 }
 
 }

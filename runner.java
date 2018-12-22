@@ -18,15 +18,20 @@ public class runner {
 
 		ArrayList<Insturment> insturments = new ArrayList<>();
 		insturments.add(new Insturment("Ukulele","Acoustic Guitar (nylon)","\"treble\"",false,false));
+		insturments.add(new Insturment("Ukulele","Acoustic Guitar (nylon)","\"treble\"",false,false));
 
 		ArrayList<Note> oneTemp = MovementOne.generate(intervals);
+		ArrayList<Note> holdTemp = MovementOne.generateHold(6);
+
 		//System.out.println(oneTemp);
 
 		String oneFinal = Note.toString(oneTemp);
+		String holdFinal = Note.toString(holdTemp);
 		//System.out.println(oneFinal);
 
 		ArrayList<String> finalPart = new ArrayList<>();
 		finalPart.add(oneFinal);
+		finalPart.add(holdFinal);
 		//System.out.println(finalPart);
 
 		buildParts(timeStamp,"SmallMusic", finalPart,insturments);

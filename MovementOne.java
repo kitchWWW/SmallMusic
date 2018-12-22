@@ -59,11 +59,42 @@ public class MovementOne {
 			mvmtOne.add(new Note(motifs.get(i).get(0),4,""));
 			mvmtOne.add(new Note(motifs.get(i).get(1),4,""));
 		}
-		mvmtOne.add(8+(int)Math.round(Math.random()*8),new Note("^\\markup{\\magnify #2 \"*\" }"));
+		mvmtOne.add(2,new Note("^\\markup{ \\column{ \\small \"2, 5\" \n"+
+			"\\magnify #2 \"*\" }   }"));
+
+		mvmtOne.add(8+(int)Math.round(Math.random()*8),new Note("^\\markup{ \\column{ \\small \"1, 5, 7\" \n"+
+			"\\magnify #2 \"*\" }   }"));
 		mvmtOne.add(18,new Note("\n\\break\n"));
-		mvmtOne.add(38,new Note("\n\\set Score.repeatCommands = #'((volta \"1-4, 6\"))\n"));
+		mvmtOne.add(39,new Note("\n\\set Score.repeatCommands = #'((volta \"1-4, 6\"))\n"));
+		mvmtOne.add(new Note(" \\set Score.repeatCommands = #'((volta #f)) \n"+
+			"\\revert Score.BarLine.stencil\n"+
+			"\\bar \":|.\""));
 		return mvmtOne;
 	}
+
+	public static ArrayList<Note> generateHold(Integer length){
+		ArrayList<Note> stringOfNotes = new ArrayList<>();
+		stringOfNotes.add(new Note("\\revert Score.BarLine.stencil \n"+
+			"\\bar\":|.\"\n"+
+			" \\set Score.repeatCommands = #'((volta \"5\")) \n"+
+			"fis''4 \\override Score.BarLine.stencil = ##f \n"+
+			"g''4 g'' g'' g'' \n \\set Score.repeatCommands = #'((volta #f)) \n g'' "));
+		for(int i =0; i < length; i ++){
+			stringOfNotes.add(new Note(79,4,""));
+		}
+		stringOfNotes.add(1+(int)Math.round(Math.random()*length),new Note("^\\markup{\\magnify #2 \"*\" }"));
+		stringOfNotes.add(new Note(" g'' g'' g'' \n"+
+			" \\revert Score.BarLine.stencil\n" +
+			"\\bar \":|.\" \n"+
+			"\\set Score.repeatCommands = #'((volta \"7\")) \n"+
+			"fis''4 \\override Score.BarLine.stencil = ##f \n"+
+			"g'' s4 s4^\\markup{\\magnify #2 \"*\" } s4 s4^\\markup{\\magnify #2 \"*\" } \n "+
+			"\\set Score.repeatCommands = #'((volta #f)) \n" +
+			"\\revert Score.BarLine.stencil\n"+
+			"\\bar \"|.\""));
+		return stringOfNotes;
+	}
+
 
 	public static ArrayList<ArrayList<Integer>> buildOutOfMotifs(ArrayList<ArrayList<Integer>> upmotifs, ArrayList<ArrayList<Integer>> downmotifs){
 		Collections.shuffle(upmotifs);
