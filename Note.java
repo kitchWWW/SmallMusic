@@ -3,7 +3,12 @@ import java.util.ArrayList;
 
 public class Note {
 
-	static String[] noteNames = {"c","cis","d","dis","e","f","fis","g","aes","a","ais","b"};
+	
+	public static String[] keyNames = {"c","des","d","ees","e","f","fis","g","aes","a","bes","b"};
+	static String[] noteNamesSharp = {"c","cis","d","dis","e","f","fis","g","gis","a","ais","b"};
+	static String[] noteNamesDoubleSharp = {"c","cis","d","dis","e","eis","fis","g","gis","a","ais","b"};
+	static String[] noteNamesFlat = {"c","des","d","ees","e","f","ges","g","aes","a","bes","b"};
+	static Integer[] usesSharps = {1,0,1,0,1,0,2,1,0,1,0,1};
 
 	int midi;
 	String lilypond;
@@ -26,7 +31,7 @@ public class Note {
 		return ret;
 	}
 
-	public Note(int pitchValue, int dur, String message){
+	public Note(int key, int pitchValue, int dur, String message){
 		midi = pitchValue;
 		if(dur>16 || dur <1){
 			dur = 16;
@@ -36,7 +41,17 @@ public class Note {
 		if(midi == -1){
 			pitch = "r";
 		}else{
-			pitch = noteNames[midi%12];
+			pitch = "";
+			if(usesSharps[key%12] == 1){
+				pitch = noteNamesSharp[midi%12];
+			}
+			if(usesSharps[key%12] == 0){
+				pitch = noteNamesFlat[midi%12];
+			}
+			if(usesSharps[key%12] == 2){
+				pitch = noteNamesDoubleSharp[midi%12];
+			}
+
 			int octave = midi/12;
 	 		octave -= 4;
 	 		while(octave!=0){

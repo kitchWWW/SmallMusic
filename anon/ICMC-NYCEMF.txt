@@ -1,0 +1,25 @@
+Music is often described as a dialogue between three entities: the composer, the performer, and the listener. The history of Western Classical Music is, in many ways, the history of the composer taking power for themselves from these other groups. From the earliest numes used to inscribe Gregorian chant, to the development of sheet music, to the computerized playback of recorded audio, most developments in music technology has been towards the end of allowing the composer to more exactly articulate what they intend to say, and in doing so, take interpretive liberty away from the performer and listener. Indeed, Varése, in describing the direction in which electronic music should evolve, called for machines that could exactly replicate the sounds indicated by a composer on a score, without the need for pesky interpreters, performers, and conductors. Small Music, and indeed all of my other works, aim to use technology to redistribute this compositional agency. Small Music works to use technology to shift decision making from the composer to the environment and the performer. It accomplishes this through two primary means. The first, distributing agency to the environment, follows in the tradition of John Cage. This comes in the form of the algorithmically composed sheet music, which is generated fresh for each performance. The second, distributing agency to the performer, follows in the tradition of Jazz, Bluegrass, and other performer-centric traditions, where the bulk of the musical interest comes from raw, live, and gritty performance artifacts. Small Music engages this with tradition through the music's exposed nature, where even the slightest of artistic choices in accent, timbre, and rubato are highlighted.
+
+
+
+
+This piece is open instrumentation, so, while I would be more than happy to perform the work, it would be wonderful if it may spark the interest of violinist Maja Cerar or percussionist Patti Cudd.
+
+
+
+
+
+Exploring divested compositional agency, Small Music works to expose the most intimate details of any performance. This algorithmically generated piece is unique for every performance, and the performer is expected to be performing the work at first sight. This intentional situation of performance prima vista works to highlight both the performer's prowess and humanity. Comprised of a simple soloist's line set against simple electronic counterpoint, this intimate work explores our imperfect human nature.
+
+
+
+
+
+
+
+
+Brian Ellis is an Austin based composer, researcher, and guitarist. His musical drive lies in using code to realize his larger compositional vision: that technology should be used toward divesting musical agency from the composer to the environment, the performer, or ultimately, the listener.
+
+Brian is a Music and Computer Science Honors Undergraduate studying at the University of Texas at Austin. He has had works premiered in numerous events, including the Ears Eyes and Feet Collaborative Concert, the Good House Collective's "Time Warp", the Engineering Chamber Orchestra's Spring Showcase, as well as in numerous student concerts at the University of Texas. He has produced works in collaboration with dancers on numerous occasions, most notably with Unset 2.0, an improvisation and audience co-collaborative dance company. As a performer, Brian is committed to diversifying the repertoire of the Classical Guitar, and has performed a senior recital comprised exclusively of minimalist works arranged for the instrument. He performs with a wide range of musicians under the umbrella of the Good House Collective, the New Music Ensemble he co-founded with Christian Clark (Percussion), Nicolas Dominguez (Double Bass), and Zoe Cagan (Flute).
+
+As a Computer Scientist and Computational Biologist, Brian is a researcher in Dr. Howard Ochman's Microbial Evolution Lab, which is part of the Department of Integrative Biology. Brian's most recent publication is in the Journal Bioinformatics, and discusses classifying prokaryotic species based on gene flow.

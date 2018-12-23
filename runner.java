@@ -10,18 +10,50 @@ import java.util.Scanner;
 public class runner {
 
 	public static void main(String[] args) {
-		String  timeStamp = args[0];
+		String timeStamp = args[0];
+		int key = Integer.parseInt(args[1]);
+		String clef = args[2];
+		String name = args[3];
+
+		int highBound = 77; //treble
+		if(clef.equals("treble_8")){
+			highBound = highBound-12;
+		}
+		if(clef.equals("treble^8")){
+			highBound = highBound+12;
+		}
+		if(clef.equals("bass")){
+			highBound = 57;
+		}
+		if(clef.equals("alto")){
+			highBound = 67;
+		}
+		if(clef.equals("tenor")){
+			highBound = 64;
+		}
+		while(key < highBound){
+			key = key + 12;
+		}
+		while(key > highBound){
+			key = key-12;
+		}
+		
+		System.out.println(""+key);
+
+
+
 		ArrayList<Integer> intervals = new ArrayList<>();
 		intervals.add(0);
 		intervals.add(1);
 		intervals.add(4);
 
 		ArrayList<Insturment> insturments = new ArrayList<>();
-		insturments.add(new Insturment("Ukulele","Acoustic Guitar (nylon)","\"treble\"",false,false));
-		insturments.add(new Insturment("Ukulele","Acoustic Guitar (nylon)","\"treble\"",false,false));
-
-		ArrayList<Note> oneTemp = MovementOne.generate(intervals);
-		ArrayList<Note> holdTemp = MovementOne.generateHold(6);
+		insturments.add(new Insturment("Ukulele","Acoustic Guitar (nylon)","\""+clef+"\"",false,false));
+		insturments.add(new Insturment("Ukulele","Acoustic Guitar (nylon)","\""+clef+"\"",false,false));
+		System.out.println("here?");
+		ArrayList<Note> oneTemp = MovementOne.generate(intervals,key);
+		System.out.println("there?");
+		ArrayList<Note> holdTemp = MovementOne.generateHold(6,key);
 
 		//System.out.println(oneTemp);
 
@@ -34,12 +66,12 @@ public class runner {
 		finalPart.add(holdFinal);
 		//System.out.println(finalPart);
 
-		buildParts(timeStamp,"SmallMusic", finalPart,insturments);
+		buildParts(timeStamp,"SmallMusic", finalPart,insturments,key);
 		//System.out.println("Done?");
 	}
 
 	private static void buildParts(String timeStamp, String title,
-		ArrayList<String> parts, ArrayList<Insturment> insturments){
+		ArrayList<String> parts, ArrayList<Insturment> insturments, int key){
 		try {
 			ArrayList<String> longParts = new ArrayList<>();
 			for(int index = 0; index < insturments.size(); index++){
@@ -56,7 +88,10 @@ public class runner {
 		            	newPart+= insturments.get(index).name +"\n";
 
 		            }else if(i.startsWith("%clef")){
-		            	newPart+= insturments.get(index).staff +"\n";
+		            	newPart+= "\\clef " + insturments.get(index).staff +"\n";
+		            
+		            }else if(i.startsWith("%key")){
+		            	newPart+= "\\key "+ Note.keyNames[key%12] +"\\major" +"\n";
 		            
 		            }else if(i.contains("%midi")){
 		            	i = i.substring(0,i.indexOf("%midi"));

@@ -5,20 +5,30 @@ import java.lang.Math;
 
 public class MovementOne {
 
-	public static ArrayList<Note> generate(ArrayList<Integer> intervals){
+	public static ArrayList<Note> generate(ArrayList<Integer> intervals, int key){
 
 		ArrayList<Note> mvmtOne = new ArrayList<>();
 		ArrayList<Integer> notes = new ArrayList<>();
-		notes.add(67);
-		notes.add(69);
-		notes.add(71);
-		notes.add(73);
-		notes.add(74);
-		notes.add(76);
-		notes.add(78);
-		notes.add(79);
-		notes.add(81);
-		notes.add(83);
+		notes.add(key-7);
+		notes.add(key-5);
+		notes.add(key-3);
+		notes.add(key-1);
+		notes.add(key); //74
+		notes.add(key+2);
+		notes.add(key+4);
+		notes.add(key+5);
+		notes.add(key+7);
+		notes.add(key+9);
+		// notes.add(67);
+		// notes.add(69);
+		// notes.add(71);
+		// notes.add(73);
+		// notes.add(74);
+		// notes.add(76);
+		// notes.add(78);
+		// notes.add(79);
+		// notes.add(81);
+		// notes.add(83);
 		ArrayList<ArrayList<Integer>> upmotifs = new ArrayList<>();
 		ArrayList<ArrayList<Integer>> downmotifs = new ArrayList<>();
 
@@ -34,6 +44,7 @@ public class MovementOne {
 		}
 		Boolean goodToGo = false;
 		ArrayList<ArrayList<Integer>> motifs = new ArrayList<>();
+		System.out.println("here too?");
 		while(!goodToGo){
 			motifs = buildOutOfMotifs(upmotifs,downmotifs);
 			goodToGo = true;
@@ -46,49 +57,56 @@ public class MovementOne {
 					goodToGo = false;
 				}
 			}
-			if(motifs.get(motifs.size()-1).get(1)!=78){
+			if(motifs.get(motifs.size()-1).get(1)!=key+4){
 				goodToGo = false;
 			}
-			if(motifs.get(0).get(0)!=73){
+			if(motifs.get(0).get(0)!=key-1){
 				goodToGo = false;
 			}
 		}
 		System.out.println(motifs);
-		mvmtOne.add(new Note("\\key d \\major"));
 		for(int i = 0; i < motifs.size(); i++){
-			mvmtOne.add(new Note(motifs.get(i).get(0),4,""));
-			mvmtOne.add(new Note(motifs.get(i).get(1),4,""));
+			mvmtOne.add(new Note(key,motifs.get(i).get(0),4,""));
+			mvmtOne.add(new Note(key,motifs.get(i).get(1),4,""));
 		}
-		mvmtOne.add(2,new Note("^\\markup{ \\column{ \\small \"2, 6\" \n"+
+		mvmtOne.add(1,new Note("^\\markup{ \\column{ \\small \"2, 6\" \n"+
 			"\\magnify #2 \"*\" }   }"));
 
-		mvmtOne.add(8+(int)Math.round(Math.random()*8),new Note("^\\markup{ \\column{ \\small \"1, 5, 7\" \n"+
+		mvmtOne.add(7+(int)Math.round(Math.random()*8),new Note("^\\markup{ \\column{ \\small \"1, 5, 7\" \n"+
 			"\\magnify #2 \"*\" }   }"));
-		mvmtOne.add(21,new Note("\n\\break\n"));
-		mvmtOne.add(39,new Note("\n\\set Score.repeatCommands = #'((volta \"1-4, 6\"))\n"));
+		mvmtOne.add(20,new Note("\n\\break\n"));
+		mvmtOne.add(38,new Note("\n\\set Score.repeatCommands = #'((volta \"1-4, 6\"))\n"));
 		mvmtOne.add(new Note(" \\set Score.repeatCommands = #'((volta #f)) \n"+
 			"\\revert Score.BarLine.stencil\n"+
 			"\\bar \":|.\""));
 		return mvmtOne;
 	}
 
-	public static ArrayList<Note> generateHold(Integer length){
+	public static ArrayList<Note> generateHold(Integer length,int key){
 		ArrayList<Note> stringOfNotes = new ArrayList<>();
 		stringOfNotes.add(new Note("\\revert Score.BarLine.stencil \n"+
 			"\\bar\":|.\"\n"+
-			" \\set Score.repeatCommands = #'((volta \"5\")) \n"+
-			"fis''4 \\override Score.BarLine.stencil = ##f \n"+
-			"g''4 g'' g'' g'' \n \\set Score.repeatCommands = #'((volta #f)) \n g'' "));
+			" \\set Score.repeatCommands = #'((volta \"5\")) \n"));
+		stringOfNotes.add(new Note(key,key+4,4,"\\override Score.BarLine.stencil = ##f \n"));
+		stringOfNotes.add(new Note(key,key+5,4,""));
+		stringOfNotes.add(new Note(key,key+5,4,""));
+		stringOfNotes.add(new Note(key,key+5,4,"\n \\set Score.repeatCommands = #'((volta #f))\n"));
+		stringOfNotes.add(new Note(key,key+5,4,""));
+		
 		for(int i =0; i < length; i ++){
-			stringOfNotes.add(new Note(79,4,""));
+			stringOfNotes.add(new Note(key,key+5,4,""));
 		}
-		stringOfNotes.add(1+(int)Math.round(Math.random()*length),new Note("^\\markup{\\magnify #2 \"*\" }"));
-		stringOfNotes.add(new Note(" g'' g'' g'' \n"+
-			" \\revert Score.BarLine.stencil\n" +
+		stringOfNotes.add(7+(int)Math.round(Math.random()*(length)-1),new Note("^\\markup{\\magnify #2 \"*\" }"));
+		stringOfNotes.add(new Note(key,key+5,4,""));
+		stringOfNotes.add(new Note(key,key+5,4,""));
+		stringOfNotes.add(new Note(key,key+5,4,"\n \\revert Score.BarLine.stencil\n" +
 			"\\bar \":|.\" \n"+
-			"\\set Score.repeatCommands = #'((volta \"7\")) \n"+
-			"fis''4 \\override Score.BarLine.stencil = ##f \n"+
-			"g'' s4 s4^\\markup{\\magnify #2 \"*\" } s4 s4^\\markup{\\magnify #2 \"*\" } \n "+
+			"\\set Score.repeatCommands = #'((volta \"7\")) \n"));
+		stringOfNotes.add(new Note(key,key+4,4,"\\override Score.BarLine.stencil = ##f"));
+		stringOfNotes.add(new Note(key,key+5,4,""));
+		
+
+		stringOfNotes.add(new Note(" s4 s4^\\markup{\\magnify #2 \"*\" } s4 s4^\\markup{\\magnify #2 \"*\" } \n "+
 			"\\set Score.repeatCommands = #'((volta #f)) \n" +
 			"\\revert Score.BarLine.stencil\n"+
 			"\\bar \"|.\""));

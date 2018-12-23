@@ -10,7 +10,10 @@
 
 \absolute {
 \override Score.BarNumber.break-visibility = ##(#f #f #f)
-	\key d \major
+
+%key
+%clef
+
  \once \hide Staff.TimeSignature 
  \override Score.BarLine.stencil = ##f 
    \override Score.BarNumber.break-visibility = ##(#f #f #f) 

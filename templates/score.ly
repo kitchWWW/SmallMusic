@@ -75,16 +75,15 @@ piece = ""
 \column{
 \huge "Performance Instructions:"
 "  "
-"~4:30 total"
 }
 
 
   \hspace #6
 
 \small \column{
+"Repeat the cycle a total of seven times."
 "* indicates to advance the program via"
 \line{\hspace #4 "either the space bar or foot pedal."}
-"Repeat the cycle a total of seven times."
  "Advance the program at the first * only during"
 \line{\hspace #4 "the second and sixth time playing."}
 "Advance the program at the second * only"
