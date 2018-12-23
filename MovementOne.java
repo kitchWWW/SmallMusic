@@ -59,12 +59,12 @@ public class MovementOne {
 			mvmtOne.add(new Note(motifs.get(i).get(0),4,""));
 			mvmtOne.add(new Note(motifs.get(i).get(1),4,""));
 		}
-		mvmtOne.add(2,new Note("^\\markup{ \\column{ \\small \"2, 5\" \n"+
+		mvmtOne.add(2,new Note("^\\markup{ \\column{ \\small \"2, 6\" \n"+
 			"\\magnify #2 \"*\" }   }"));
 
 		mvmtOne.add(8+(int)Math.round(Math.random()*8),new Note("^\\markup{ \\column{ \\small \"1, 5, 7\" \n"+
 			"\\magnify #2 \"*\" }   }"));
-		mvmtOne.add(18,new Note("\n\\break\n"));
+		mvmtOne.add(21,new Note("\n\\break\n"));
 		mvmtOne.add(39,new Note("\n\\set Score.repeatCommands = #'((volta \"1-4, 6\"))\n"));
 		mvmtOne.add(new Note(" \\set Score.repeatCommands = #'((volta #f)) \n"+
 			"\\revert Score.BarLine.stencil\n"+

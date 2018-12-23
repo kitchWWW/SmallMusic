@@ -86,7 +86,7 @@ piece = ""
 \line{\hspace #4 "either the space bar or foot pedal."}
 "Repeat the cycle a total of seven times."
  "Advance the program at the first * only during"
-\line{\hspace #4 "the second and fifth time playing."}
+\line{\hspace #4 "the second and sixth time playing."}
 "Advance the program at the second * only"
 \line{\hspace #4 "on the first, fifth, and seventh times"}
 \line{\hspace #4 "playing the cycle."}
